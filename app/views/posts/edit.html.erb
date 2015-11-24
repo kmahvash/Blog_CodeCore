@@ -1,0 +1,29 @@
+<h3>EDIT THIS POST</h3>
+<br>
+<p>
+  <% if @post.errors.any? %>
+  Error:
+    <ul>
+      <% @post.errors.messages.each do |msg| %>
+      <li> <%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+<p>
+  Edit this post:
+</p>
+<%=  render("/posts/form") %>
+<!-- <%= form_for @post do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+   <br>
+   <%= f.submit %>
+<% end %> -->

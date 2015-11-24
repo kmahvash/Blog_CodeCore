@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style media="screen">
+    .empty-div {
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+
+<%= render "/layouts/nav" %>
+
+<% if flash[:notice] %>
+ <div class="alert alert-success">
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   <%= flash[:notice] %>
+ </div>
+
+<% elsif flash[:alert] %>
+ <div class="alert alert-danger">
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   <%= flash[:alert] %>
+ </div>
+<% end %>
+
+<%= yield %>
+
+
+  </div>
+</body>
+</html>

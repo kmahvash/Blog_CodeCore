@@ -1,0 +1,8 @@
+<h2>all COMMENTs</h2>
+
+<% @comment.each do |comment| %>
+<div class="well">
+    <%= link_to comment.title, comment_path(comment) %>
+<hr>
+</div>
+<% end %>

@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h2><small>SUBMIT A</small> New Post </h2>
+</div>
+
+<p>
+  <% if @post.errors.any? %>
+    <ul>
+      Error:
+      <% @post.errors.messages.each do |msg| %>
+      <li> <%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<%= render("/posts/form") %>
+<!-- <%= form_for @post do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+   <br>
+   <%= f.submit %>
+<% end %> -->

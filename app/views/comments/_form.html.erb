@@ -1,0 +1,15 @@
+<%= @comment.errors.full_messages.join(" AND/OR ") %>
+
+<%= form_for @comment do |f| %>
+  <div class="">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div class="">
+    <%= f.submit %>
+  </div>
+<% end %>

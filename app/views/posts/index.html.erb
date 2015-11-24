@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h2><small>ALL</small> Posts </h2>
+</div>
+
+<% @post.each do |post| %>
+  <div class="well">
+  <%= link_to post.title, post_path(post) %>
+  </div>
+<% end %>
