@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.post = @post
     if @comment.save
+      CommentsMailer.notify_post_owner(Comment.last).deliver_later
       redirect_to post_path(@post), notice: "Your comment was successfuly created."
     else
       redirect_to post_path(@post)

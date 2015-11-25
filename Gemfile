@@ -39,6 +39,9 @@ gem 'kaminari'
 
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'delayed_job_active_record'
+gem "delayed_job_web"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -60,4 +63,7 @@ group :development do
   gem 'awesome_print'
   gem 'hirb'
   gem 'interactive_editor'
+
+  gem "letter_opener"
+
 end

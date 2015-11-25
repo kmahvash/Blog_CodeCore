@@ -1,0 +1,21 @@
+<h3> There is a new comment for your post!</h3>
+
+<p> Hello <%= @owner.full_name %></p>
+
+<p>
+  You have received a new comment for your post titled:<span style="font-weight: bold"> <%= @post.title %></span>.
+</p>
+
+<p>
+  <span style="font-weight: bold">Submitted by: </span>  <%= @comment.user.full_name %>
+</p>
+<p>
+  <span style="font-weight: bold">Comment: </span>  <%= @comment.body %>
+</p>
+
+<p>
+  Regards;
+</p>
+<p>
+  Your Blog Team
+</p>
