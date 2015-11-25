@@ -9,6 +9,12 @@
     .empty-div {
       height: 20px;
     }
+    .footer {
+      text-align: centre;
+      font-size: 10;
+      color: #888;
+      background-color: #ddd;
+    }
   </style>
 </head>
 <body>
@@ -17,22 +23,38 @@
 
 <%= render "/layouts/nav" %>
 
-<% if flash[:notice] %>
- <div class="alert alert-success">
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-   <%= flash[:notice] %>
- </div>
+  <% if flash[:notice] %>
+   <div class="alert alert-success">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+     <%= flash[:notice] %>
+   </div>
 
-<% elsif flash[:alert] %>
- <div class="alert alert-danger">
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-   <%= flash[:alert] %>
- </div>
-<% end %>
+  <% elsif flash[:alert] %>
+   <div class="alert alert-danger">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+     <%= flash[:alert] %>
+   </div>
+  <% end %>
 
-<%= yield %>
-
+  <%= yield %>
 
   </div>
+
+
+
+
+  <div class="empty-div">
+  </div>
+
+  <div class="container-fluid">
+    <p>
+      <small>created by: kourosh mahvash</small>
+    </p>
+    <p>
+      <small><strong>FOR CODECORE BOOTCAMP, OCTOBER 2015 COHORT</strong></small>
+    </p>
+  </div>
+
+
 </body>
 </html>

@@ -31,7 +31,12 @@ class PostsController < ApplicationController
 
 
   def index
-    @post = Post.all
+    @query = params[:query]
+    if @query
+      @posts = Post.order(:created_at).page(params[:page]).search(params[:query])
+    else
+      @posts = Post.order(:created_at).page(params[:page])
+    end
   end
 
 
@@ -65,7 +70,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    @post = Post.find params[:id]
+    @post = Post.friendly.find params[:id]
   end
 
   def post_params

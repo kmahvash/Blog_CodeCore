@@ -4,7 +4,7 @@ class LikesController < ApplicationController
 
   def create
     like = Like.new
-    post = Post.find params[:post_id]
+    post = Post.friendly.find params[:post_id]
     like.post = post
     like.user = current_user
     if like.save
@@ -16,7 +16,7 @@ class LikesController < ApplicationController
 
   def destroy
     like = current_user.likes.find_by_id params[:id]
-    post = Post.find_by_id params[:post_id]
+    post = Post.friendly.find_by_id params[:post_id]
     like.destroy
     redirect_to post_path(post), notice: "You have removed your Like form this post."
   end

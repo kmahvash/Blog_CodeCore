@@ -17,6 +17,12 @@ class Post < ActiveRecord::Base
 
   validates(:body, {presence: true})
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
+  paginates_per 10
+  max_paginates_per 50
+
   def liked_by?(user)
     likes_for(user).present?
   end
@@ -36,6 +42,18 @@ class Post < ActiveRecord::Base
   def vote_results
     votes.select{|v| v.is_up?}.count - votes.select{|v| !v.is_up?}.count
   end
+
+  def self.search(term)
+    if term
+      where(["title ILIKE? OR body ILIKE?", "%#{term}%", "%#{term}%"])
+    else
+      all
+    end
+  end
+
+
+
+
 
 
 end
