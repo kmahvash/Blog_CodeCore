@@ -20,7 +20,9 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  paginates_per 10
+  mount_uploader :image, ImageUploader
+
+  paginates_per 24
   max_paginates_per 50
 
   def liked_by?(user)

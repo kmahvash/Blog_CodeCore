@@ -42,6 +42,9 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'delayed_job_active_record'
 gem "delayed_job_web"
 
+gem 'carrierwave'
+
+gem 'mini_magick'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
