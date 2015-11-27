@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>Your Posts + Comments </h1>
+</div>
+
+<div class="half-page">
+  <dl class="dl-horizontal">
+    <% current_user.posts.each do |post| %>
+    <dt><small>Title:</small> <%= post.title %></dt>
+    <dd><small>Body:</small> <%= post.body %></dd>
+    <% end %>
+  </dl>
+</div><div class="half-page">
+  <dl class="dl-horizontal">
+    <% current_user.comments.each do |comment| %>
+    <dt><small>Post by: <%= comment.post.user.full_name %></small> <%= comment.post.title %></dt>
+    <dd><small>Your Comment:</small> <%= comment.body %></dd>
+  <% end %>
+  </dl>
+</div>

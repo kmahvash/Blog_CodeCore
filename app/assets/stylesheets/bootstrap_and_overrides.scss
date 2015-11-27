@@ -8,13 +8,20 @@ $navbar-default-bg: #000;
 $navbar-default-disabled-color: #FFF;
 $navbar-default-link-color: #FFF;
 $navbar-default-link-hover-color: #EEE;
+
 $jumbotron-color: black;
 $jumbotron-bg: #F5E336;
-$jumbotron-font-size: 220px;
+$jumbotron-font-size: 250px;
 $jumbotron-heading-font-size: 130px;
+
 $btn-default-bg: #F5E336;
+$btn-danger-bg: #000;
 $btn-primary-bg: #F5E336;
 $btn-primary-color: #000;
+$btn-border-radius-large: 0px;
+
 $thumbnail-bg: #EEE;
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";

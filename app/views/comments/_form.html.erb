@@ -1,15 +1,7 @@
-<%= @comment.errors.full_messages.join(" AND/OR ") %>
-
-<%= form_for @comment do |f| %>
-  <div class="">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= simple_form_for [@post, @comment], remote: true do |f| %>
+  <div class="form-group">
+    <%= f.input :title %>
+    <%= f.input :body %>
   </div>
-  <div class="">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div class="">
-    <%= f.submit %>
-  </div>
+    <%= f.submit "Submit Your Comment", class: "btn btn-primary", data: {disable_with: "Saving..."} %>
 <% end %>

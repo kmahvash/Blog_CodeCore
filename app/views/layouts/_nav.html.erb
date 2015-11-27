@@ -17,6 +17,9 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "<span class='glyphicon glyphicon-th-list'></span> All Posts".html_safe, posts_path %></li>
             <li><%= link_to "<span class='glyphicon glyphicon-plus'></span> New Post".html_safe, new_post_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "<span class='glyphicon glyphicon-list'></span> Your Posts + Comments".html_safe, users_path %></li>
+            <% end %>
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group" id="search">

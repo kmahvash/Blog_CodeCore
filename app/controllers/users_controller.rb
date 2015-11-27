@@ -15,6 +15,10 @@ def create
   end
 end
 
+def index
+@posts = current_user.posts
+@comments = current_user.comments
+end
 
 
 end

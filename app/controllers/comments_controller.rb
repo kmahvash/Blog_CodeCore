@@ -16,11 +16,15 @@ class CommentsController < ApplicationController
     @post = Post.friendly.find params[:post_id]
     @comment = current_user.comments.new(comment_params)
     @comment.post = @post
-    if @comment.save
-      CommentsMailer.notify_post_owner(Comment.last).deliver_later
-      redirect_to post_path(@post), notice: "Your comment was successfuly created."
-    else
-      redirect_to post_path(@post)
+    respond_to do |format|
+      if @comment.save
+        CommentsMailer.notify_post_owner(Comment.last).deliver_later
+        format.html {redirect_to post_path(@post), notice: "Your comment was successfuly created."}
+        format.js   {render :create_success}
+      else
+        format.html {redirect_to post_path(@post)}
+        format.js   {render :create_failure}
+      end
     end
   end
 
@@ -41,9 +45,12 @@ class CommentsController < ApplicationController
   # end
 
   def destroy
-    @comment.destroy
     redirect_to root_path, alert: "Access denied: Only the author of a comment or the corresponding post could delete a comment." unless can? :destroy, @comment
-    redirect_to post_path(@comment.post), notice: "The selected comment was successfully deleted."
+    @comment.destroy
+    respond_to do |format|
+      format.html {redirect_to post_path(@comment.post), notice: "The selected comment was successfully deleted."}
+      format.js   {render}
+    end
   end
 
 
