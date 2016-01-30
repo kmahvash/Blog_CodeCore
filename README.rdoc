@@ -1,3 +1,5 @@
-Blog was an assignment during the web development bootcamp at CodeCore (October to December 2015). 
+=== BLOG
+
+Blog was an assignment during the web development bootcamp at *CodeCore* (October to December 2015). 
 
 It is built on Rails and makes use of JavaScript and Ajax while integrating Ruby gems such as kaminari, simple_form, friendly_id, cancancan, carrierwave, mini_magik and font_awesome.
